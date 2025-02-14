@@ -1,0 +1,36 @@
+name: Java CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+        with:
+          fetch-depth: 0  # Garante que todo o repositório seja clonado
+
+      - name: List repository files
+        run: ls -la  # Exibe os arquivos para verificar se o arquivo está correto
+
+      - name: Set up JDK 17
+        uses: actions/setup-java@v3
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Compile Java files
+        run: |
+          javac -d out src/main/java/br/com/DesafioControleFluxo/application/Contador.java src/main/java/br/com/DesafioControleFluxo/exception/ParametrosInvalidosException.java
+
+      - name: Run the program
+        run: |
+          java -cp out br.com.DesafioControleFluxo.application.Contador  # Executa o programa com parâmetros simulados
