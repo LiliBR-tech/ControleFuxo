@@ -1,0 +1,28 @@
+# Arquivo .gitignore
+
+# Ignorar arquivos compilados
+*.class
+
+# Ignorar diretório bin
+/bin/
+
+# Ignorar arquivos de configurações de IDEs
+/.idea/
+*.iml
+/.vscode/
+
+# Ignorar arquivos de build
+/build/
+
+# Ignorar dependências do Maven
+/.mvn/
+/target/
+
+# Ignorar dependências do Gradle
+/.gradle/
+/build/
+
+# Ignorar logs
+*.log
+
+---
